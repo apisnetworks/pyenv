@@ -35,7 +35,6 @@ release_lock() {
 }
 
 if [ ! -w "$SHIM_PATH" ]; then
-  echo "pyenv: cannot rehash: $SHIM_PATH isn't writable"
   exit 1
 fi
 
