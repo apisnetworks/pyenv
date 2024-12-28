@@ -59,7 +59,7 @@ if [ -z "$PYENV_COMMAND" ]; then
 fi
 
 OLDIFS="$IFS"
-IFS=: versions=(${PYENV_VERSION:-$(pyenv-version-name)})
+IFS=: versions=(${PYENV_VERSION:-$(pyenv-version-name -f)})
 IFS="$OLDIFS"
 
 declare -a nonexistent_versions
@@ -96,7 +96,6 @@ else
     for version in "${nonexistent_versions[@]}"; do
       echo "pyenv: version \`$version' is not installed (set by $(pyenv-version-origin))" >&2
     done
-    exit 1
   fi
 
   echo "pyenv: $PYENV_COMMAND: command not found" >&2
